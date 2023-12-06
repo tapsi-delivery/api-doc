@@ -13,3 +13,14 @@ https
 OAuth
 Istio
 timezone
+URL
+Params
+json
+Timeslots
+timeslot
+metadata
+google
+googleapis
+rpc
+backend
+tapsi

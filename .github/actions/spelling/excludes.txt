@@ -81,4 +81,4 @@ ignore$
 \.zip$
 ^\.github/actions/spelling/
 ^\Q.github/workflows/spelling.yml\E$
-(?:^|/)swagger\.yaml$
+^\apis/external-services-swagger.yaml$
