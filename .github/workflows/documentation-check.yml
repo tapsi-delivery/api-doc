@@ -1,0 +1,29 @@
+name: Documentation Checks
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Check Spelling
+        uses: check-spelling/check-spelling@v0.0.22
+            
+      - name: Lint Markdown
+        uses: avto-dev/markdown-lint@v1
+        with:
+          config: '.github/linters/.markdown-lint.yml'
+
+      - name: Check links
+        uses: lycheeverse/lychee-action@v1.0.8
+        with:
+          args: --verbose README.md
