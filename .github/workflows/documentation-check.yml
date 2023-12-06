@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Check spelling
-        uses: check-spelling/check-spelling@0.0.19
+        uses: check-spelling/check-spelling@0.0.22
 
       - name: Lint Markdown
         uses: avto-dev/markdown-lint@v1
