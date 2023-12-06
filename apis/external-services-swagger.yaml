@@ -1,0 +1,647 @@
+swagger: '2.0'
+info:
+  title: external-services
+  version: '2023-12-06'
+tags:
+  - name: ExternalEmbeddedTimeService
+host: api.tapsi.ir
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /api/v1/delivery/external/embedded/order/change-status/{status}:
+    put:
+      operationId: ExternalEmbeddedOrderService_ChangeOrderStatus
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties: {}
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+        - name: status
+          in: path
+          required: true
+          type: string
+          enum:
+            - departedToSender
+            - arrivedToSender
+            - senderNoShow
+            - pickedUp
+            - departedToReceiver
+            - arrivedToReceiver
+            - receiverNoShow
+            - fulfilled
+            - cancelledBySender
+            - cancelledByAgent
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              requestItems:
+                type: array
+                items:
+                  type: object
+                  $ref: '#/definitions/v1ChangeOrdersStatusRequestRequestItem'
+      tags:
+        - ExternalEmbeddedOrderService
+  /api/v1/delivery/external/embedded/order/preview:
+    get:
+      operationId: ExternalEmbeddedOrderService_GetOrderPreview
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v1GetOrderPreviewResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+        - name: originLat
+          in: query
+          required: false
+          type: number
+          format: float
+        - name: originLong
+          in: query
+          required: false
+          type: number
+          format: float
+        - name: destinationLat
+          in: query
+          required: false
+          type: number
+          format: float
+        - name: destinationLong
+          in: query
+          required: false
+          type: number
+          format: float
+        - name: dateTimestamp
+          in: query
+          required: false
+          type: string
+          format: int64
+        - name: couponCode
+          in: query
+          required: false
+          type: string
+        - name: initSessionToken
+          in: query
+          required: false
+          type: string
+      tags:
+        - ExternalEmbeddedOrderService
+  /api/v1/delivery/external/embedded/order/submit:
+    post:
+      operationId: ExternalEmbeddedOrderService_SubmitOrder
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/embeddedorderSubmitOrderResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/v1SubmitOrderRequest'
+      tags:
+        - ExternalEmbeddedOrderService
+  /api/v1/delivery/external/embedded/order/{orderId}:
+    get:
+      operationId: ExternalEmbeddedOrderService_GetOrder
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/v1GetOrderResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      parameters:
+        - name: orderId
+          in: path
+          required: true
+          type: string
+      tags:
+        - ExternalEmbeddedOrderService
+  /api/v1/delivery/external/embedded/available-dates:
+    get:
+      operationId: ExternalEmbeddedTimeService_GetAvailableDates
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/embeddedtimeGetAvailableDatesResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/googlerpcStatus'
+      tags:
+        - ExternalEmbeddedTimeService
+definitions:
+  ChangeOrdersStatusRequestArrivedToReceiverMetadata:
+    type: object
+  ChangeOrdersStatusRequestArrivedToSenderMetadata:
+    type: object
+  ChangeOrdersStatusRequestCancelledBySenderMetadata:
+    type: object
+  ChangeOrdersStatusRequestDepartedToReceiverMetadata:
+    type: object
+  ChangeOrdersStatusRequestDepartedToSenderMetadata:
+    type: object
+  ChangeOrdersStatusRequestFulfilledMetadata:
+    type: object
+    properties:
+      receiverAuthorizationCode:
+        type: string
+  ChangeOrdersStatusRequestPickedUpMetadata:
+    type: object
+  ChangeOrdersStatusRequestReceiverNoShowMetadata:
+    type: object
+  ChangeOrdersStatusRequestSenderNoShowMetadata:
+    type: object
+  ContactContactLocation:
+    type: object
+    properties:
+      id:
+        type: string
+        description: >-
+          Use this id to update an existing location, for creating a new contact
+          location, leave this field empty
+        title: Contact Location Identifier
+      title:
+        type: string
+      location:
+        $ref: '#/definitions/httpv1Location'
+  ContactContactType:
+    type: string
+    enum:
+      - SENDER
+      - ME
+      - RECEIVER
+    default: NONE
+  ContactPhone:
+    type: object
+    properties:
+      number:
+        type: string
+      type:
+        $ref: '#/definitions/PhonePhoneType'
+      isPrimary:
+        type: boolean
+      title:
+        type: string
+  DriverPlate:
+    type: object
+    properties:
+      type:
+        type: string
+      payload:
+        $ref: '#/definitions/PlatePlatePayload'
+  DriverVehicle:
+    type: object
+    properties:
+      model:
+        type: string
+      color:
+        type: string
+      plate:
+        $ref: '#/definitions/DriverPlate'
+  GetOrderPreviewResponseInvoicePerTimeslot:
+    type: object
+    properties:
+      timeslotId:
+        type: string
+      startTimestamp:
+        type: string
+        format: int64
+      endTimestamp:
+        type: string
+        format: int64
+      isAvailable:
+        type: boolean
+      invoice:
+        $ref: '#/definitions/InvoicePerTimeslotInvoice'
+  InvoiceDescription:
+    type: object
+    properties:
+      title:
+        type: string
+      amount:
+        type: integer
+        format: int32
+  InvoicePerTimeslotInvoice:
+    type: object
+    properties:
+      discount:
+        type: integer
+        format: int32
+      amount:
+        type: integer
+        format: int32
+      paymentInAdvance:
+        type: integer
+        format: int32
+      descriptions:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/InvoiceDescription'
+  PhonePhoneType:
+    type: string
+    enum:
+      - MOBILE
+      - HOME
+      - OTHER
+    default: NONE
+  PlatePlatePayload:
+    type: object
+    properties:
+      firstPart:
+        type: string
+      secondPart:
+        type: string
+      letter:
+        type: string
+      provinceCode:
+        type: string
+  SenderPanelFullOrderSenderPanelRating:
+    type: object
+    properties:
+      score:
+        type: integer
+        format: int32
+  driverDriver:
+    type: object
+    properties:
+      profile:
+        $ref: '#/definitions/driverDriverProfile'
+      vehicle:
+        $ref: '#/definitions/DriverVehicle'
+      coordinate:
+        $ref: '#/definitions/v1Coordinate'
+      phoneNumber:
+        type: string
+      id:
+        type: string
+  driverDriverProfile:
+    type: object
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string
+      pictureUrl:
+        type: string
+      phoneNumber:
+        type: string
+  embeddedorderSubmitOrderResponse:
+    type: object
+    properties:
+      orderId:
+        type: string
+  googlerpcStatus:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      details:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/protobufAny'
+  httpv1Contact:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      type:
+        $ref: '#/definitions/ContactContactType'
+        description: >-
+          The type of the contact, if the contact is the user itself, the type
+          is ME, otherwise it is OTHER. For creating a new contact, set this
+          field to SENDER or RECEIVER. For updating the user contact, set this
+          field to ME
+      phones:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/ContactPhone'
+      locations:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/ContactContactLocation'
+  httpv1Location:
+    type: object
+    properties:
+      coordinate:
+        $ref: '#/definitions/v1Coordinate'
+      description:
+        type: string
+      buildingNumber:
+        type: string
+      apartmentNumber:
+        type: string
+  httpv1Profile:
+    type: object
+    properties:
+      firstName:
+        type: string
+        description: >-
+          This field is deprecated and will be removed in the future. Please use
+          name instead.
+      lastName:
+        type: string
+        description: >-
+          This field is deprecated and will be removed in the future. Please use
+          name instead.
+      phoneNumber:
+        type: string
+        description: >-
+          This field is deprecated and will be removed in the future. Please use
+          phones instead.
+      name:
+        type: string
+      phones:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/ContactPhone'
+  protobufAny:
+    type: object
+    properties:
+      '@type':
+        type: string
+    additionalProperties: {}
+  v1ChangeOrdersStatusRequestCancelledByAgentMetadata:
+    type: object
+  v1ChangeOrdersStatusRequestRequestItem:
+    type: object
+    properties:
+      orderId:
+        type: string
+      departedToSenderMetadata:
+        $ref: '#/definitions/ChangeOrdersStatusRequestDepartedToSenderMetadata'
+      arrivedToSenderMetadata:
+        $ref: '#/definitions/ChangeOrdersStatusRequestArrivedToSenderMetadata'
+      senderNoShowMetadata:
+        $ref: '#/definitions/ChangeOrdersStatusRequestSenderNoShowMetadata'
+      pickedUpMetadata:
+        $ref: '#/definitions/ChangeOrdersStatusRequestPickedUpMetadata'
+      departedToReceiverMetadata:
+        $ref: '#/definitions/ChangeOrdersStatusRequestDepartedToReceiverMetadata'
+      arrivedToReceiverMetadata:
+        $ref: '#/definitions/ChangeOrdersStatusRequestArrivedToReceiverMetadata'
+      receiverNoShowMetadata:
+        $ref: '#/definitions/ChangeOrdersStatusRequestReceiverNoShowMetadata'
+      fulfilledMetadata:
+        $ref: '#/definitions/ChangeOrdersStatusRequestFulfilledMetadata'
+        title: >-
+          TODO: Client's request doesn't have this field. It's name is
+          "receiver_authorization_code" (and it's a string - not an object
+          containing a string)
+      cancelledBySenderMetadata:
+        $ref: '#/definitions/ChangeOrdersStatusRequestCancelledBySenderMetadata'
+      cancelledByAgentMetadata:
+        $ref: '#/definitions/v1ChangeOrdersStatusRequestCancelledByAgentMetadata'
+  v1ChangeOrdersStatusRequestTransformationStatus:
+    type: string
+    enum:
+      - departedToSender
+      - arrivedToSender
+      - senderNoShow
+      - pickedUp
+      - departedToReceiver
+      - arrivedToReceiver
+      - receiverNoShow
+      - fulfilled
+      - cancelledBySender
+      - cancelledByAgent
+    default: departedToSender
+  v1Coordinate:
+    type: object
+    properties:
+      latitude:
+        type: number
+        format: double
+      longitude:
+        type: number
+        format: double
+      bearing:
+        type: number
+        format: double
+  v1GetOrderPreviewResponse:
+    type: object
+    properties:
+      token:
+        type: string
+      invoicePerTimeslots:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/GetOrderPreviewResponseInvoicePerTimeslot'
+  v1GetOrderResponse:
+    type: object
+    properties:
+      order:
+        $ref: '#/definitions/v1SenderPanelFullOrder'
+  v1Pack:
+    type: object
+    properties:
+      description:
+        type: string
+  v1Price:
+    type: object
+    properties:
+      price:
+        type: string
+        format: int64
+      passengerShare:
+        type: string
+        format: int64
+  v1ProofOfDelivery:
+    type: object
+    properties:
+      required:
+        type: boolean
+      code:
+        type: string
+        description: >-
+          This field is only available for who has the permission to see the
+          proof of delivery code
+        title: Proof of Delivery Code
+      isSkipped:
+        type: boolean
+        description: >-
+          This field indicates that the proof of delivery is skipped or not, it
+          could be null if the proof of delivery not provided yet
+        title: Proof of Delivery Skipped
+  v1Receiver:
+    type: object
+    properties:
+      location:
+        $ref: '#/definitions/httpv1Location'
+      fullName:
+        type: string
+      phoneNumber:
+        type: string
+        description: This field is deprecated. Use `phones` instead.
+      phones:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/ContactPhone'
+  v1Sender:
+    type: object
+    properties:
+      id:
+        type: string
+      profile:
+        $ref: '#/definitions/httpv1Profile'
+      location:
+        $ref: '#/definitions/httpv1Location'
+  v1SenderPanelFullOrder:
+    type: object
+    properties:
+      origin:
+        $ref: '#/definitions/httpv1Location'
+      receiver:
+        $ref: '#/definitions/v1Receiver'
+      driver:
+        $ref: '#/definitions/driverDriver'
+      package:
+        $ref: '#/definitions/v1Pack'
+      timeslot:
+        $ref: '#/definitions/v1Timeslot'
+      etaToOrigin:
+        type: string
+        format: int64
+      etaToDestination:
+        type: string
+        format: int64
+      createdAt:
+        type: string
+        format: int64
+      orderCode:
+        type: string
+      orderId:
+        type: string
+      price:
+        $ref: '#/definitions/v1Price'
+      statusInfo:
+        $ref: '#/definitions/v1SenderPanelFullOrderStatusInfo'
+      cancelable:
+        type: boolean
+      packageHandoverDeadline:
+        type: string
+        format: int64
+      rating:
+        $ref: '#/definitions/SenderPanelFullOrderSenderPanelRating'
+      sender:
+        $ref: '#/definitions/v1Sender'
+      proofOfDelivery:
+        $ref: '#/definitions/v1ProofOfDelivery'
+      nonTaker:
+        $ref: '#/definitions/httpv1Contact'
+  v1SenderPanelFullOrderStatus:
+    type: string
+    enum:
+      - SUBMITTED
+      - ASSIGNED
+      - DEPARTED_TO_SENDER
+      - ARRIVED_TO_SENDER
+      - PICKED_UP
+      - DEPARTED_TO_RECEIVER
+      - ARRIVED_TO_RECEIVER
+      - CANCELLED_BY_AGENT
+      - CANCELLED_BY_DRIVER
+      - CANCELLED_BY_SENDER
+      - CANCELLED_BY_AGENT_AFTER_PICKUP
+      - CANCELLED_BY_DRIVER_AFTER_PICKUP
+      - CANCELLED_BY_SENDER_AFTER_PICKUP
+      - RECEIVER_NO_SHOW
+      - SENDER_NO_SHOW
+      - FAILED_TO_ASSIGN
+      - FULFILLED
+      - FAILED_TO_FULFILL
+      - PENDING
+      - FAILED_TO_SUBMIT
+    default: SUBMITTED
+  v1SenderPanelFullOrderStatusInfo:
+    type: object
+    properties:
+      status:
+        $ref: '#/definitions/v1SenderPanelFullOrderStatus'
+      title:
+        type: string
+      description:
+        type: string
+  v1SubmitOrderRequest:
+    type: object
+    properties:
+      sender:
+        $ref: '#/definitions/v1Sender'
+      receiver:
+        $ref: '#/definitions/v1Receiver'
+      pack:
+        $ref: '#/definitions/v1Pack'
+      timeslotId:
+        type: string
+      token:
+        type: string
+      isProofOfDeliveryRequired:
+        type: boolean
+      initSessionToken:
+        type: string
+  v1Timeslot:
+    type: object
+    properties:
+      id:
+        type: string
+      startTimestamp:
+        type: string
+        format: int64
+      endTimestamp:
+        type: string
+        format: int64
+  embeddedtimeGetAvailableDatesResponse:
+    type: object
+    properties:
+      availableDatesTimestamp:
+        type: array
+        items:
+          type: string
+          format: int64
+securityDefinitions:
+  authorization:
+    type: apiKey
+    name: authorization
+    in: header
+security:
+  - authorization: []
+externalDocs:
+  description: The istio error model
+  url: https://conf.webdooz.com/display/DELIVERY/Error+Model+API
