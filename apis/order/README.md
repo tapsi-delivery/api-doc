@@ -187,7 +187,6 @@ Example Response:
         "apartmentNumber": ""
       },
       "fullName": "محمد محمدی",
-      "phoneNumber": "09121111111",
       "phones": [
         {
           "number": "09121111111",
