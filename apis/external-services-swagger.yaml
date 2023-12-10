@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   title: external-services
-  version: '2023-12-06'
+  version: '2023-12-10'
 tags:
   - name: ExternalEmbeddedTimeService
 host: api.tapsi.ir
@@ -141,6 +141,20 @@ paths:
           type: string
       tags:
         - ExternalEmbeddedOrderService
+  /api/v1/delivery/external/embedded/user/credit:
+    get:
+      operationId: ExternalEmbeddedUserService_GetUserCredit
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/userGetUserCreditResponse'
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/rpcStatus'
+      tags:
+        - ExternalEmbeddedUserService
   /api/v1/delivery/external/embedded/available-dates:
     get:
       operationId: ExternalEmbeddedTimeService_GetAvailableDates
@@ -627,6 +641,25 @@ definitions:
       endTimestamp:
         type: string
         format: int64
+  rpcStatus:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      details:
+        type: array
+        items:
+          type: object
+          $ref: '#/definitions/protobufAny'
+  userGetUserCreditResponse:
+    type: object
+    properties:
+      balance:
+        type: integer
+        format: int32
   embeddedtimeGetAvailableDatesResponse:
     type: object
     properties:
