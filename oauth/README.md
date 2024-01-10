@@ -28,6 +28,7 @@ To obtain your tokens, please contact us at [Tapsi Pack](https://pack.tapsi.ir/l
 
 Clients can generate both an **Access Token** and a **Refresh Token** using their **Client ID** in combination with the
 **user's PAT**. The Access Token that is generated inherits the permissions associated with the corresponding PAT.
+Note that each **PAT** can only be used once and if it's used again, the previous refresh token will be invalidated. 
 
 The body of the message should be sent as **x-www-form-urlencoded**, and the provided **client secret** should be set as
 the **Bearer** authorization header.
