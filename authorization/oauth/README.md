@@ -20,7 +20,7 @@ There are two types of tokens:
 
 To obtain your tokens, please contact us at [Tapsi Pack](https://pack.tapsi.ir/landing).
 
-![APIs flow](../images/pack-external-apis-flow.png)
+![APIs flow](../../images/pack-external-apis-flow.png)
 
 ## Token Management for Clients
 

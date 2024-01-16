@@ -1,0 +1,62 @@
+# Tapsi Pack API: API Secret Key Guide
+
+Welcome to the API Secret Key guide for the Tapsi Pack API. This guide will help you understand how to authenticate with the
+Tapsi Pack API using API Secret Key
+
+## Introduction
+In this document, external teams integrating with our API are referred to as **clients**.
+
+API Secret Key is a randomly generated string that is assigned to each client. This key is used to authenticate the client
+when accessing the Tapsi Pack API.
+
+Each client can have a maximum of **one active API Secret Key**.
+
+To access our external APIs, two headers must be included in the client's request. These headers ensure secure
+access to the APIs and prevent unauthorized access to sensitive data:
+- `x-api-secret-key` : Client API Secret Key
+- `x-encoded-user-id` : User ID encoded with Base64
+
+To obtain your personal API Secret Key and Encoded User ID, please contact us at [Tapsi Pack](https://pack.tapsi.ir/landing).
+
+## API Secret Key Generation Process
+
+When clients contact us to integrate with our APIs, we generate an API Secret Key for them and send it to them. The API Secret Key
+has the following features:
+
+### 1. API Secret Key Scopes
+The API Secret Key can have a custom scope. This feature is useful when the client wants to limit the access of their API
+Secret Key to a specific set of APIs.
+So when the client wants to limit the access of their API Secret Key to a specific set of APIs, they can clarify the scope
+of their API Secret Key when contacting us.
+
+Currently, the available Scopes are defined [here](/apis/README.md#overview).
+
+### 2. Expiration Feature
+The API Secret Key can have a custom expiry date, but the default expiry duration is 1 year. This feature is useful when
+the client wants to limit the validity of their API Secret Key.
+
+### 3. API Secret Key Note
+The API Secret Key can have a custom note. This feature is useful when the client wants to add a note to
+their API Secret Key in order to ease the process of managing their API Secret Key.
+We recommend to set the note of the API Secret Key to the name of the client.
+
+
+## Using the API Secret Key
+
+Note that the `x-encoded-user-id` field is the client userId encoded with Base64.
+For example if the client userId is **123**, the encoded userId will be `MTIz`.
+
+Here is a sample cURL request to use [Available Dates API](/apis/time/README.md) using API Secret Key:
+
+```bash
+curl --location --request GET 'https://api.tapsi.cab/api/v1/delivery/external/embedded/available-dates' \
+--header 'x-api-secret-key: 6gJqJu-1eIe9ypYzFh3pwtBkDaltr35Y09Z1zQacuzBcWfMAFFZqQgNdb2q_jWc-CU8wQXaUkEvFBpMIJ7_u24xuWoPABRY-_nyEHXreAATlAxrdTh5-64craO8zm8r2' \
+--header 'x-encoded-user-id: MTIz' \
+--data-raw ''
+```
+
+## API Secret Key Revocation Process
+
+The API Secret Key can be revoked and a new one can be generated for the client. This feature is useful when the client
+suspects that their API Secret Key has been compromised.
+To revoke your API Secret Key and generate a new one, please contact us.
