@@ -58,7 +58,7 @@ Response:
 
 Example Curl:
 
-```
+```bash
 curl --location 'https://api.tapsi.cab/api/v1/delivery/external/oauth2/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --header 'Authorization: Bearer Client Secret' \
@@ -113,7 +113,7 @@ Response:
 
 Example Curl:
 
-```
+```bash
 curl --location 'https://api.tapsi.cab/api/v1/delivery/external/oauth2/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --header 'Authorization: Bearer Client Secret' \
