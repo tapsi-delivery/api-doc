@@ -18,6 +18,8 @@ access to the APIs and prevent unauthorized access to sensitive data:
 
 To obtain your personal API Secret Key and Encoded User ID, please contact us at [Tapsi Pack](https://pack.tapsi.ir/landing).
 
+![Authorization flow](../../images/pack-api-secret-key-flow.png)
+
 ## API Secret Key Generation Process
 
 When clients contact us to integrate with our APIs, we generate an API Secret Key for them and send it to them. The API Secret Key
