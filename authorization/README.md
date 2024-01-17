@@ -10,16 +10,18 @@ using OAuth and API Secret Key.
 
 ### OAuth
 
-OAuth is an open-standard authorization protocol or framework that describes how unrelated servers
+OAuth is an open-standard authorization protocol which describes how unrelated servers
 and services can safely allow authenticated access to their assets without
 actually sharing the initial credential.
 In OAuth, tokens are used to obtain a new access token upon the expiration of
 an initial access token.
 
+For more information about OAuth, please refer to [OAuth 2.0 Documentation](https://oauth.net/2/).
+
 ### API Secret Key
 
 An API Secret Key is a secure, randomly generated string that is used to authenticate a client
-when accessing an API. It acts somewhat like a password, unique to each client,
+when accessing an API. It acts somewhat like a password, unique to each user,
 that needs to be included in the header of API requests.
 
 ## Usages
