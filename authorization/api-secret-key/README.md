@@ -1,6 +1,6 @@
 # Tapsi Pack API: API Secret Key Guide
 
-Welcome to the API Secret Key guide for the Tapsi Pack API. This guide will help you understand how to authenticate with the
+Welcome to the API Secret Key guide for the Tapsi Pack API. This guide will help you understand how to authorization with the
 Tapsi Pack API using API Secret Key
 
 ## Introduction
@@ -25,7 +25,7 @@ has the following features:
 
 ### 1. API Secret Key Scopes
 The API Secret Key can have a custom scope. This feature is useful when the client wants to limit the access of their API
-Secret Key to a specific set of APIs.
+Secret Key to a specific set of features.
 So when the client wants to limit the access of their API Secret Key to a specific set of APIs, they can clarify the scope
 of their API Secret Key when contacting us.
 
