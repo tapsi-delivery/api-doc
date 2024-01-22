@@ -1,30 +1,35 @@
 # Tapsi Pack API: API Secret Key Guide
 
-Welcome to the API Secret Key guide for the Tapsi Pack API. This guide will help you understand how to authorization with the
+Welcome to the API Secret Key guide for the Tapsi Pack API. This guide will help you understand how to authorization
+with the
 Tapsi Pack API using API Secret Key
 
 ## Introduction
 
-API Secret Key is a randomly generated string that is assigned to each user. This key is used to authenticate the client
+API Secret Key is a randomly generated string that is assigned to each user. This key is used to authenticate the user
 when accessing the Tapsi Pack API.
 
 Each user can have a maximum of **one active API Secret Key**.
 
 To access our external APIs, two headers must be included in the user's request. These headers ensure secure
 access to the APIs and prevent unauthorized access to sensitive data:
+
 - `x-api-secret-key` : User API Secret Key
 - `x-encoded-user-id` : User ID encoded with Base64
 
-To obtain your personal API Secret Key and Encoded User ID, please contact us at [Tapsi Pack](https://pack.tapsi.ir/landing).
+To obtain your personal API Secret Key and Encoded User ID, please contact us
+at [Tapsi Pack](https://pack.tapsi.ir/landing).
 
 ![Authorization flow](../../images/pack-api-secret-key-flow.png)
 
 ## API Secret Key Generation Process
 
-When users contact us to integrate with our APIs, we generate an API Secret Key for them and send it to them. The API Secret Key
+When users contact us to integrate with our APIs, we generate an API Secret Key for them and send it to them. The API
+Secret Key
 has the following features:
 
 ### 1. API Secret Key Scopes
+
 The API Secret Key can have a custom scope. This feature is useful when the user wants to limit the access of their API
 Secret Key to a specific set of features.
 So when the user wants to limit the access of their API Secret Key to a specific set of APIs, they can clarify the scope
@@ -33,14 +38,15 @@ of their API Secret Key when contacting us.
 Currently, the available Scopes are defined [here](/apis/README.md#overview).
 
 ### 2. Expiration Feature
+
 The API Secret Key can have a custom expiry date, but the default expiry duration is 1 year. This feature is useful when
 the user wants to limit the validity of their API Secret Key.
 
 ### 3. API Secret Key Note
+
 The API Secret Key can have a custom note. This feature is useful when the user wants to add a note to
 their API Secret Key in order to ease the process of managing their API Secret Key.
 We recommend to set the note of the API Secret Key related to the user's usage.
-
 
 ## Using the API Secret Key
 

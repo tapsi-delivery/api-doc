@@ -20,7 +20,7 @@ For more information about OAuth, please refer to [OAuth 2.0 Documentation](http
 
 ### API Secret Key
 
-An API Secret Key is a secure, randomly generated string that is used to authenticate a client
+An API Secret Key is a secure, randomly generated string that is used to authenticate a user
 when accessing an API. It acts somewhat like a password, unique to each user,
 that needs to be included in the header of API requests.
 
@@ -39,9 +39,9 @@ accessible to the client.
 ### API Secret Key Usage
 
 On the other hand, using an API Secret Key is best for server-to-server communication,
-where there is no need for user interaction.
-This method is recommended when the actions performed are on behalf of the client and
-not the user.
+where there is no need for external server's user interaction.
+This method is recommended when the actions performed are on behalf of the application,
+not the application's users.
 
 ## Differences and Choosing the Right Method
 
