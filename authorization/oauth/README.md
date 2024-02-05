@@ -20,7 +20,7 @@ There are two types of tokens:
 
 To obtain your tokens, please contact us at [Tapsi Pack](https://pack.tapsi.ir/landing).
 
-![APIs flow](../images/pack-external-apis-flow.png)
+![APIs flow](../../images/pack-external-apis-flow.png)
 
 ## Token Management for Clients
 
@@ -79,7 +79,7 @@ Response:
 
 Example Curl:
 
-```
+```bash
 curl --location 'https://api.tapsi.cab/api/v1/delivery/external/oauth2/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --header 'Authorization: Bearer Client Secret' \
@@ -134,7 +134,7 @@ Response:
 
 Example Curl:
 
-```
+```bash
 curl --location 'https://api.tapsi.cab/api/v1/delivery/external/oauth2/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --header 'Authorization: Bearer Client Secret' \
