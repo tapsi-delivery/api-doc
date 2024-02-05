@@ -6,9 +6,9 @@ Tapsi Pack API using OAuth.
 ## Introduction
 
 In this document, external teams integrating with our API are referred to as **clients**. Each client is assigned a
-unique **client_id** and a corresponding **client_secret**.
+unique **client_secret**.
 
-To access our external APIs, a token must be included in the header of the client's request. This token ensures secure
+To access our external APIs, a token must be included in the header of the client's request. This token ensures a secure
 access to the APIs and prevents unauthorized access to sensitive data.
 
 The token should be set in the header with the key name **"authorization"**.
@@ -24,9 +24,9 @@ To obtain your tokens, please contact us at [Tapsi Pack](https://pack.tapsi.ir/l
 
 ## Token Management for Clients
 
-### 1. Generate Access Token and Refresh Token using Client ID and PAT
+### 1. Generate Access Token and Refresh Token using a Client Secret and PAT
 
-Clients can generate both an **Access Token** and a **Refresh Token** using their **Client ID** in combination with the
+Clients can generate both an **Access Token** and a **Refresh Token** using their **Client Secret** in combination with the
 **user's PAT**. The Access Token that is generated inherits the permissions associated with the corresponding PAT.
 
 The body of the message should be sent as **x-www-form-urlencoded**, and the provided **client secret** should be set as
@@ -81,7 +81,7 @@ Jwt is expired
 ### 3. Generate a new Access Token and Refresh token using the Refresh token
 
 Clients can use the Refresh Token to generate a new Access Token and Refresh Token without needing to involve the user's
-PAT or Client ID again. This is useful for maintaining continuous access to the API without frequent user interactions.
+PAT or Client Secret again. This is useful for maintaining continuous access to the API without frequent user interactions.
 
 To generate a new set of tokens using a Refresh Token, clients should make a POST request to the token endpoint, and the
 body of the message should be sent as **x-www-form-urlencoded**, and the client secret as the **Bearer** authorization
@@ -121,5 +121,5 @@ curl --location 'https://api.tapsi.cab/api/v1/delivery/external/oauth2/token' \
 --data-urlencode 'refresh_token=User Refresh Token'
 ```
 
-Currently, the access token is valid for a duration of 2 days. When it expires, users need to log in using their
+Currently, the access token is valid for 2 days. When it expires, users need to log in using their
 Personal Access Token (PAT) again, following the same process as in Step 1.
