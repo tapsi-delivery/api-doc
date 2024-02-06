@@ -32,9 +32,15 @@ Clients can generate both an **Access Token** and a **Refresh Token** using thei
 The body of the message should be sent as **x-www-form-urlencoded**, and the provided **client secret** should be set as
 the **Bearer** authorization header.
 
-URL: `https://api.tapsi.cab/api/v1/delivery/external/oauth2/token`
+URL: 
+```
+https://api.tapsi.cab/api/v1/delivery/external/oauth2/token
+```
 
-Method: `POST`
+Method: 
+```
+POST
+```
 
 Request (as **Form URL Encoded**):
 
@@ -87,9 +93,15 @@ To generate a new set of tokens using a Refresh Token, clients should make a POS
 body of the message should be sent as **x-www-form-urlencoded**, and the client secret as the **Bearer** authorization
 header.
 
-URL: `https://api.tapsi.cab/api/v1/delivery/external/oauth2/token`
+URL: 
+```
+https://api.tapsi.cab/api/v1/delivery/external/oauth2/token
+```
 
-Method: `POST`
+Method: 
+```
+POST
+```
 
 Request (as **Form URL Encoded**):
 
