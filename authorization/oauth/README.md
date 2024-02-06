@@ -121,5 +121,5 @@ curl --location 'https://api.tapsi.cab/api/v1/delivery/external/oauth2/token' \
 --data-urlencode 'refresh_token=User Refresh Token'
 ```
 
-Currently, the access token is valid for 2 days. When it expires, users need to log in using their
+Currently, the refresh token is valid for 2 days. When it expires, users need to log in using their
 Personal Access Token (PAT) again, following the same process as in Step 1.
