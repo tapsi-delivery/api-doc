@@ -22,3 +22,7 @@ Response:
   "balance": 125000
 }
 ```
+
+---
+
+[فارسی](./README_fa.md)

@@ -310,3 +310,7 @@ Response:
 ```json5
 {}
 ```
+
+---
+
+[فارسی](./README_fa.md)

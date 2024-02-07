@@ -27,3 +27,7 @@ Response:
   ]
 }
 ```
+
+---
+
+[فارسی](./README_fa.md)

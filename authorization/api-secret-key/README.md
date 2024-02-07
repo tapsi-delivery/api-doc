@@ -67,3 +67,7 @@ curl --location --request GET 'https://api.tapsi.cab/api/v1/delivery/external/em
 The API Secret Key can be revoked and a new one can be generated for the user. This feature is useful when the user
 suspects that their API Secret Key has been compromised.
 To revoke your API Secret Key and generate a new one, please contact us.
+
+---
+
+[فارسی](./README_fa.md)

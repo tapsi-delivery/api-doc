@@ -65,3 +65,7 @@ For instructions on how to obtain and use your API Secret Key, please refer to t
 
 Please make sure to review your integration needs carefully to choose the most suitable method for your application.
 If you have any questions or need further assistance, feel free to reach out to our [support team](https://pack.tapsi.ir/landing).
+
+---
+
+[فارسی](./README_fa.md)

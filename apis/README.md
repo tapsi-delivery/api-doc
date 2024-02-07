@@ -55,3 +55,7 @@ The Get User Credit API allows clients to retrieve amount of credit for their us
 Clients can get a user credit by passing the user's access token.
 
 For more details on each API, please refer to the respective sections in the documentation.
+
+---
+
+[فارسی](./README_fa.md)
