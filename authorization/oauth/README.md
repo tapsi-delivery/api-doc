@@ -134,4 +134,4 @@ curl --location 'https://api.tapsi.cab/api/v1/delivery/external/oauth2/token' \
 ```
 
 Currently, the access token is valid for 2 days. When it expires, users need to log in using their
-Personal Access Token (PAT) again, following the same process as in Step 1.
+Personal Access Token (PAT) again, following the same process as in [Step 1](#1-generate-access-token-and-refresh-token-using-a-client-secret-and-pat).
