@@ -19,7 +19,7 @@ header of all APIs with the key name "authorization". This guide covers the foll
 
 5. **Change Order Status API (Cancellation)**: This API allows clients to cancel their orders.
 
-6. **Get User Credit API**: This API allows clients to retrieve amount of credit for their users.
+6. **Get User Credit API**: This API allows clients to retrieve the amount of credit for their users.
 
 ## [Available Dates API](time/README.md)
 
@@ -35,9 +35,7 @@ token. The only difference is that the Token field in the response of this API w
 
 ## [Order Submission API](order/README.md)
 
-The Order Submission API allows clients to submit their orders. If this API is called using the client secret instead of
-the user access token, you can display a preview of prices to your users without the need for a user token. The only
-difference is that the Token field in the response of this API will be an empty string.
+The Order Submission API allows clients to submit their orders.
 
 ## [Get Order API](order/README.md)
 
@@ -51,7 +49,7 @@ one or multiple orders.
 
 ## [Get User Credit API](user/README.md)
 
-The Get User Credit API allows clients to retrieve amount of credit for their users.
+The Get User Credit API allows clients to retrieve the amount of credit for their users.
 Clients can get a user credit by passing the user's access token.
 
 For more details on each API, please refer to the respective sections in the documentation.
