@@ -24,7 +24,28 @@ To obtain your tokens, please contact us at [Tapsi Pack](https://pack.tapsi.ir/l
 
 ## Token Management for Clients
 
-### 1. Generate Access Token and Refresh Token using a Client Secret and PAT
+### 1. Generate Personal Access Token (PAT)
+
+To generate a Personal Access Token (PAT), clients are required to follow these steps:
+
+1. **Navigate to Tapsi Pack External Auth:**
+   Clients should direct their users to [Tapsi Pack External Auth](https://pack.tapsi.ir/external-auth).
+
+2. **Client Selection:**
+   On the External Auth page, users will encounter a list displaying all available clients within Tapsi Pack. Clients need to choose the specific client they wish to generate a PAT for.
+
+   ![APIs flow](../images/generate-pat-2.png)
+
+3. **Grant Required Access:**
+   After selecting a client, users should grant the necessary accesses to the chosen client. This step ensures that the client can perform actions on behalf of the users.
+
+   ![APIs flow](../images/generate-pat-3.png)
+
+4. **View and Copy PAT:**
+   Once the required accesses are granted, users will be able to view a PAT. This PAT should be copied and provided to the respective client. Clients will utilize this token to make requests on behalf of the users.
+
+
+### 2. Generate Access Token and Refresh Token using Client ID and PAT
 
 Clients can generate both an **Access Token** and a **Refresh Token** using their **Client Secret** in combination with the
 **user's PAT**. The Access Token that is generated inherits the permissions associated with the corresponding PAT.
@@ -72,7 +93,7 @@ curl --location 'https://api.tapsi.cab/api/v1/delivery/external/oauth2/token' \
 --data-urlencode 'code=User PAT'
 ```
 
-### 2. Access Token Expiry
+### 3. Access Token Expiry
 
 Clients can use the access token until it expires. If a client attempts to use an expired access token, the following
 response will be generated.
@@ -84,7 +105,7 @@ Content-Type: text
 Jwt is expired
 ```
 
-### 3. Generate a new Access Token and Refresh token using the Refresh token
+### 4. Generate a new Access Token and Refresh token using the Refresh token
 
 Clients can use the Refresh Token to generate a new Access Token and Refresh Token without needing to involve the user's
 PAT or Client Secret again. This is useful for maintaining continuous access to the API without frequent user interactions.
@@ -134,7 +155,7 @@ curl --location 'https://api.tapsi.cab/api/v1/delivery/external/oauth2/token' \
 ```
 
 Currently, the access token is valid for 2 days. When it expires, users need to log in using their
-Personal Access Token (PAT) again, following the same process as in [Step 1](#1-generate-access-token-and-refresh-token-using-a-client-secret-and-pat).
+Personal Access Token (PAT) again, following the same process as in [Step 1](#2-generate-access-token-and-refresh-token-using-a-client-secret-and-pat).
 
 ---
 
