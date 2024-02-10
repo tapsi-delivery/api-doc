@@ -44,7 +44,7 @@ Response:
 نمونه‌ی
 Curl
 (احراز هویت با
-Secret Key):
+API Secret Key):
 
 ```bash
 curl --location --request GET 'https://api.tapsi.cab/api/v1/delivery/external/embedded/available-dates' \

@@ -23,7 +23,7 @@ GET
 | destinationLat  | Float  |             |
 | destinationLong | Float  |             |
 | dateTimestamp   | Float  |             |
-| couponCode      | String | (optional)  |
+| couponCode      | String | (اختیاری)  |
 
 Response:
 
@@ -91,7 +91,7 @@ Request:
   "pack": "{Pack}",
   "timeslotId": "string",
   "token": "string"
-  // توکنی دریافت شده در پاسخ preview 
+  // توکن دریافت شده در پاسخ preview 
 }
 ```
 
