@@ -9,7 +9,9 @@ OAuth.
 در طول این آموزش به تیم‌هایی که قصد دارند خدمات تپسی‌پک را به محصول خود اضافه کنند
 **client**
 گفته می‌شود. 
-به هر client یک
+به هر
+client
+یک
 **client_secret**
 منحصر به فرد اختصاص داده می‌شود.
 
@@ -19,42 +21,107 @@ OAuth.
 [تپسی‌پک](https://pack.tapsi.ir/landing)
 ثبت کنید.
 
-<!-- 
-برای دسترسی به API های تپسی‌پک، 
+همان‌طور که
+[در این بخش](../README_fa.md)
+توضیح داده شد، پس از احراز هویت با
+OAuth
+شما می‌توانید به جای کاربرانتان در تپسی‌پک
+سفارش ثبت کنید. برای این کار، باید برای هر یک از کاربرانتان از تپسی‌پک یک
+access token
+بگیرید و آن را با کلید
+**"authorization"**
+به
+header
+درخواست‌هایتان اضافه کنید تا تپسی‌پک اطمینان حاصل کند که این کاربر به شما اجازه داده است تا از طرف او از تپسی‌پک استفاده کنید.
 
-To access our external APIs, a token must be included in the header of the client's request. This token ensures a secure
-access to the APIs and prevents unauthorized access to sensitive data.
-
-The token should be set in the header with the key name **"authorization"**.
-
-There are two types of tokens:
-
-- Client Secret Token
-- User Access Token -->
-
+در این آموزش، اقدامات لازم برای گرفتن
+access token
+و مدیریت آن مرحله به مرحله تشریح می‌شود.
 
 
 ![APIs flow](../../images/pack-external-apis-flow.png)
 
 ## مدیریت توکن
 
-### ۲. تولید کردن Access Token و Refresh Token با استفاده از Client Secret و PAT
+### ۱. ساخت Personal Access Token (PAT)
 
+ابتدا کاربری که قرار است
+client
+جای او سفارش ثبت کند، باید در تپسی‌پک یک
+PAT
+بسازد و آن را به
+client
+بدهد.
 
+هر کاربر برای ساخت
+PAT
+باید این مراحل را طی کند:
+
+۱. **ورود به حساب تپسی‌پک و رفتن به صفحه‌ی مدیریت API:**
+  پیش از هر کار،
+  client
+  باید کاربران خود را به
+  [آدرس صفحه‌ی مدیریت API تپسی‌پک](https://pack.tapsi.ir/external-auth)
+  هدایت کند.
+
+۲. **انتخاب Client:**
+  در این صفحه کاربران می‌توانند لیستی از
+  client
+  های تپسی‌پک را ببینند و باید
+  client
+  ای را انتخاب کنند که قصد دارند یک
+  PAT
+  برایش بسازند و برخی دسترسی‌ها خود را به او بدهند.
+  ![APIs flow](../../images/generate-pat-2.png)
+
+۳. **اعطای مجوز دسترسی:**
+  پس از انتخاب
+  client
+  مورد نظر، کاربر لیستی از دسترسی‌هایی را می‌بیند که
+  client
+  مربوطه به آن‌ها نیاز دارند و می‌خواهد به جای 
+  user
+  از آن‌ها استفاده کند.
+
+   After selecting a client, users should grant the necessary accesses to the chosen client. This step ensures that the client can perform actions on behalf of the users.
+
+   ![APIs flow](../../images/generate-pat-3.png)
+
+۴. **کپی کردن PAT:**
+  پس از این که کاربر روی دکمه‌ی «تایید و ساخت کلید» کلیک کرد، می‌تواند
+  PAT
+  ای که ساخته است را ببیند.
+  سپس باید این
+  PAT
+  را کپی کند و به دست
+  client
+  مربوطه برساند.
+  client
+  نیز با ترکیب
+  client secret 
+  و این
+  PAT
+  می‌تواند مطابق مرحله‌ی بعد،
+  access token
+  و
+  refresh token
+  بسازد.
+
+### ۲. ساخت Access Token و Refresh Token با استفاده از Client Secret و PAT
 
 برای درست کردن
 **Access Token**
 و
 **Refresh Token**
-
-توسط
-Client
-،
+هر
+client
 باید ابتدا یک
 **Client Secret**
-و
+داشته باشد و سپس
 **PAT**
-کاربرتان را داشته باشید. 
+کاربر را نیز مطابق 
+[مرحله‌ی قبل](#۱-ساخت-personal-access-token-pat)
+بگیرد.
 
 شما باید در محصولتان ساز و کاری را پیاده سازی کنید که به واسطه‌ی آن، کاربران بتوانند
 PAT
@@ -63,7 +130,7 @@ PAT
 Access Token
 ای که در ادامه تولید می‌کنید، دقیقا همان دسترسی‌هایی را به شما می‌دهد که کاربر به
 PAT
-اختصاص داده بوده است.
+اعطا کرده است.
 
 
 با ارسال درخواستی مطابق اطلاعات زیر، می‌توانید
@@ -115,7 +182,10 @@ curl --location 'https://api.tapsi.cab/api/v1/delivery/external/oauth2/token' \
 
 برای ارسال این درخواست، به این نکات توجه کنید:
 
-حتما body را به فرمت **x-www-form-urlencoded** 
+حتما
+body
+را به فرمت
+**x-www-form-urlencoded** 
 بفرستید و در هدر نیز کلید
 `Content-Type`
 با مقدار
@@ -128,13 +198,11 @@ curl --location 'https://api.tapsi.cab/api/v1/delivery/external/oauth2/token' \
 تا زمانی که
 access token
 ای که گرفته‌اید منقضی نشده باشد می‌توانید از آن استفاده کنید.
-در صورتی که
-Client
-از
+در صورتی که از
 access token
 ای استفاده کند که منقضی شده است، با این 
 response
-مواجه خواهد شد.
+مواجه خواهید شد.
 
 ```text
 HTTP/1.1 401 Unauthorized

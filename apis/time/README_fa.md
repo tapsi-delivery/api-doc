@@ -50,7 +50,7 @@ Secret Key):
 curl --location --request GET 'https://api.tapsi.cab/api/v1/delivery/external/embedded/available-dates' \
 --header 'x-api-secret-key: 6gJqJu-1eIe9ypYzFh3pwtBkDaltr35Y09Z1zQacuzBcWfMAFFZqQgNdb2q_jWc-CU8wQXaUkEvFBpMIJ7_u24xuWoPABRY-_nyEHXreAATlAxrdTh5-64craO8zm8r2' \
 --header 'x-encoded-user-id: MTIz' \
---data-raw ''  // TODO
+--data-raw ''
 ```
 
 نمونه‌ی
