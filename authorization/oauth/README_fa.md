@@ -1,12 +1,12 @@
 # آموزش OAuth
 
-در این آموزش با روش احراز هویت به کمک 
+در این آموزش با روش احراز هویت با 
 OAuth.
 آشنا می‌شویم.
 
 ## مقدمه
 
-در این آموزش، به تیم‌هایی که قصد دارند تپسی‌پک را با محصولاتشان ادغام کنند،
+در طول این آموزش به تیم‌هایی که قصد دارند خدمات تپسی‌پک را به محصول خود اضافه کنند
 **client**
 گفته می‌شود. 
 به هر client یک
@@ -38,7 +38,7 @@ There are two types of tokens:
 
 ## مدیریت توکن
 
-### 1. تولید کردن Access Token و Refresh Token با استفاده از Client Secret و PAT
+### ۲. تولید کردن Access Token و Refresh Token با استفاده از Client Secret و PAT
 
 
 
@@ -99,7 +99,7 @@ Response:
   "scope": "String",
   "token_type": "Bearer",
   "expires_in": "Int"
-  // seconds to expiration
+  // زمان باقی‌مانده تا انقضای access_token به  ثانیه
 }
 ```
 
@@ -123,7 +123,7 @@ curl --location 'https://api.tapsi.cab/api/v1/delivery/external/oauth2/token' \
 را اضافه کنید.
 
 
-### 2. انقضای Access Token
+### ۳. انقضای Access Token
 
 تا زمانی که
 access token
@@ -143,7 +143,7 @@ Content-Type: text
 Jwt is expired
 ```
 
-### 3. تولید یک Access Token و Refresh token جدید با استفاده از Refresh token
+### ۴. تولید یک Access Token و Refresh token جدید با استفاده از Refresh token
 
 هنگامی که
 access token
@@ -192,7 +192,7 @@ Response:
   "scope": "String",
   "token_type": "Bearer",
   "expires_in": "Int"
-  // seconds to expiration
+  // زمان باقی‌مانده تا انقضای access_token به  ثانیه
 }
 ```
 
