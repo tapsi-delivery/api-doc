@@ -58,4 +58,4 @@ For more details on each API, please refer to the respective sections in the doc
 
 ---
 
-[فارسی](./README.fa.md)
+[![fa](https://img.shields.io/badge/lang-fa-greed.svg)](./README.fa.md)

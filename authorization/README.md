@@ -68,4 +68,4 @@ If you have any questions or need further assistance, feel free to reach out to 
 
 ---
 
-[فارسی](./README.fa.md)
+[![fa](https://img.shields.io/badge/lang-fa-greed.svg)](./README.fa.md)

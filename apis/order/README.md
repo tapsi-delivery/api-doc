@@ -313,4 +313,4 @@ Response:
 
 ---
 
-[فارسی](./README.fa.md)
+[![fa](https://img.shields.io/badge/lang-fa-greed.svg)](./README.fa.md)
