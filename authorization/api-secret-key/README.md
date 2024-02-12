@@ -70,4 +70,4 @@ To revoke your API Secret Key and generate a new one, please contact us.
 
 ---
 
-[فارسی](./README_fa.md)
+[فارسی](./README.fa.md)

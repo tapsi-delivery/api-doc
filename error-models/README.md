@@ -57,4 +57,4 @@ Also, The Tapsi Pack backend team guarantees that the list of error details alwa
 
 ---
 
-[فارسی](./README_fa.md)
+[فارسی](./README.fa.md)

@@ -22,4 +22,4 @@ To get started with the Tapsi Pack API, please refer to the respective sections 
 
 ---
 
-[فارسی](./README_fa.md)
+[فارسی](./README.fa.md)

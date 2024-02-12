@@ -58,4 +58,4 @@ For more details on each API, please refer to the respective sections in the doc
 
 ---
 
-[فارسی](./README_fa.md)
+[فارسی](./README.fa.md)

@@ -51,7 +51,7 @@ API Secret Key
 در حال حاضر می‌توانید اطلاعات
 scope 
 های موجود و توضیحات هر یک را در
-[این‌جا](/apis/README_fa.md#overview)
+[این‌جا](/apis/README.fa.md#overview)
 بخوانید.
 
 

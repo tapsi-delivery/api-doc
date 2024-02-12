@@ -71,14 +71,14 @@ API Secret Key
 
 برای اطلاعات بیشتر و راهنمای گام به گام پیاده سازی روش
 OAuth
-[احراز هویت با OAuth](./oauth/README_fa.md)
+[احراز هویت با OAuth](./oauth/README.fa.md)
 را مطالعه کنید.
 
 
 برای آموزشِ گرفتن
 API Secret Key
 و استفاده از آن نیز
-[احراز هویت با API Secret Key](./api-secret-key/README_fa.md)
+[احراز هویت با API Secret Key](./api-secret-key/README.fa.md)
 را مطالعه کنید.
 
 ---

@@ -159,4 +159,4 @@ Personal Access Token (PAT) again, following the same process as in [Step 1](#2-
 
 ---
 
-[فارسی](./README_fa.md)
+[فارسی](./README.fa.md)
