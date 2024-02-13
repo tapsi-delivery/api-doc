@@ -34,12 +34,12 @@ To generate a Personal Access Token (PAT), clients are required to follow these 
 2. **Client Selection:**
    On the External Auth page, users will encounter a list displaying all available clients within Tapsi Pack. Clients need to choose the specific client they wish to generate a PAT for.
 
-   ![APIs flow](../images/generate-pat-2.png)
+   ![APIs flow](../../images/generate-pat-2.png)
 
 3. **Grant Required Access:**
    After selecting a client, users should grant the necessary accesses to the chosen client. This step ensures that the client can perform actions on behalf of the users.
 
-   ![APIs flow](../images/generate-pat-3.png)
+   ![APIs flow](../../images/generate-pat-3.png)
 
 4. **View and Copy PAT:**
    Once the required accesses are granted, users will be able to view a PAT. This PAT should be copied and provided to the respective client. Clients will utilize this token to make requests on behalf of the users.
