@@ -36,7 +36,7 @@ access token
 و مدیریت آن، مرحله به مرحله تشریح می‌شود.
 
 
-![APIs flow](../../images/pack-external-apis-flow.png)
+؜![APIs flow](../../images/pack-external-apis-flow.png)
 
 ## مدیریت توکن
 
@@ -58,7 +58,7 @@ PAT
   پیش از هر کار،
   client
   باید کاربران خود را به
-  [آدرس صفحه‌ی مدیریت API تپسی‌پک](https://pack.tapsi.ir/external-auth)
+  [صفحه‌ی مدیریت API تپسی‌پک](https://pack.tapsi.ir/external-auth)
   هدایت کند.
 
 ۲. **انتخاب Client:**
@@ -68,9 +68,9 @@ PAT
   client
   ای را انتخاب کنند که قصد دارند یک
   PAT
-  برایش بسازند و برخی دسترسی‌ها خود را به او بدهند.
+  برایش بسازند و برخی دسترسی‌های خود را به او بدهند.
 
-  ![APIs flow](../../images/generate-pat-2.png)
+  ؜![APIs flow](../../images/generate-pat-2.png)
 
 ۳. **اعطای مجوز دسترسی:**
   پس از انتخاب
@@ -79,7 +79,7 @@ PAT
   client
   مربوطه به آن‌ها نیاز دارند و می‌خواهد به جای کاربر از آن‌ها استفاده کند.
 
-   ![APIs flow](../../images/generate-pat-3.png)
+   ؜![APIs flow](../../images/generate-pat-3.png)
 
 ۴. **کپی کردن PAT و رساندن آن به Client:**
   پس از این که کاربر روی دکمه‌ی «تایید و ساخت کلید» کلیک کرد، می‌تواند
@@ -195,7 +195,7 @@ access token
 ای که گرفته‌اید منقضی نشده باشد می‌توانید از آن استفاده کنید.
 در صورتی که از
 access token
-ای استفاده کند که منقضی شده است، با این 
+ای استفاده کنید که منقضی شده است، با این 
 response
 مواجه خواهید شد.
 
