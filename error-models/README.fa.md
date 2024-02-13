@@ -112,3 +112,6 @@ ErrorLocalization
 `message`
 آن به کاربر نهایی محصول شما نمایش داده شود.
 
+---
+
+[![en](https://img.shields.io/badge/lang-en-red.svg)](./README.md)
