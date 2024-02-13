@@ -53,3 +53,7 @@ The Get User Credit API allows clients to retrieve the amount of credit for thei
 Clients can get a user credit by passing the user's access token.
 
 For more details on each API, please refer to the respective sections in the documentation.
+
+---
+
+[![fa](https://img.shields.io/badge/lang-fa-greed.svg)](./README.fa.md)

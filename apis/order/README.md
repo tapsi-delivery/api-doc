@@ -310,3 +310,7 @@ Response:
 ```json5
 {}
 ```
+
+---
+
+[![fa](https://img.shields.io/badge/lang-fa-greed.svg)](./README.fa.md)

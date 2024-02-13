@@ -27,3 +27,7 @@ Response:
   ]
 }
 ```
+
+---
+
+[![fa](https://img.shields.io/badge/lang-fa-greed.svg)](./README.fa.md)

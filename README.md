@@ -19,3 +19,7 @@ The Tapsi Pack API is divided into several scopes, each with its own set of func
 ## Getting Started
 
 To get started with the Tapsi Pack API, please refer to the respective sections of the documentation. Each section provides detailed information on how to use the APIs, handle errors, and integrate the functionalities into your application.
+
+---
+
+[![fa](https://img.shields.io/badge/lang-fa-greed.svg)](./README.fa.md)

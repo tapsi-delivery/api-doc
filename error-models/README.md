@@ -54,3 +54,7 @@ The Tapsi Pack backend team guarantees that the error details will always be one
 Also, The Tapsi Pack backend team guarantees that the list of error details always contains one or zero of each unique type, and there are rules for handling them:
 
 - If there are any ErrorLocalization, the message in this object should be shown to the end user.
+
+---
+
+[![fa](https://img.shields.io/badge/lang-fa-greed.svg)](./README.fa.md)
