@@ -434,3 +434,7 @@ curl --location --request PUT 'https://api.tapsi.cab/api/v1/delivery/external/em
     }
 }'
 ```
+
+---
+
+[![en](https://img.shields.io/badge/lang-en-red.svg)](./README.md)

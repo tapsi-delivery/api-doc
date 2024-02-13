@@ -64,3 +64,7 @@ curl --location --request GET 'https://api.tapsi.cab/api/v1/delivery/external/em
 ```
 
 فراموش نکنید که برای استفاده از این اندپوینت باید حتما از یکی از روش‌های احراز هویت استفاده کنید.
+
+---
+
+[![en](https://img.shields.io/badge/lang-en-red.svg)](./README.md)

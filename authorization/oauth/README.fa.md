@@ -275,3 +275,7 @@ refresh token
 در این صورت باید دوباره از کاربر
 PAT
 بگیرید و از مرحله‌ی ۲ به بعد را دوباره انجام دهید.
+
+---
+
+[![en](https://img.shields.io/badge/lang-en-red.svg)](./README.md)
