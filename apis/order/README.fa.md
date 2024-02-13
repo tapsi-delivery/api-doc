@@ -68,6 +68,66 @@ Response:
     }
     ```
 
+نمونه‌ی curl:
+
+```bash
+curl --location 'https://api.tapsi.cab/api/v1/delivery/external/embedded/order/preview?originLat=35.69013977050781&originLong=51.34545135498047&destinationLat=35.6959114074707&destinationLong=51.49193130493164&dateTimestamp=1707769800000' \
+--header 'Authorization: Bearer theAccessTokenGeneratedUsingCliendIdAndPat'
+```
+
+نمونه‌ی Response:
+
+```json
+{
+    "token": "aTokenInThePreviewResponseThatShouldBeUsedOnOrderSubmission",
+    "invoicePerTimeslots": [
+        {
+            "timeslotId": "1707888600000_1707899400000",
+            "startTimestamp": "1707888600000",
+            "endTimestamp": "1707899400000",
+            "isAvailable": false
+        },
+        {
+            "timeslotId": "1707899400000_1707910200000",
+            "startTimestamp": "1707899400000",
+            "endTimestamp": "1707910200000",
+            "isAvailable": false
+        },
+        {
+            "timeslotId": "1707910200000_1707921000000",
+            "startTimestamp": "1707910200000",
+            "endTimestamp": "1707921000000",
+            "isAvailable": false
+        },
+        {
+            "timeslotId": "1707921000000_1707931800000",
+            "startTimestamp": "1707921000000",
+            "endTimestamp": "1707931800000",
+            "isAvailable": true,
+            "invoice": {
+                "discount": 0,
+                "amount": 74000,
+                "paymentInAdvance": 0,
+                "descriptions": [
+                    {
+                        "title": "مبلغ سفارش",
+                        "amount": 74000
+                    },
+                    {
+                        "title": "موجودی کیف پول",
+                        "amount": 357045
+                    },
+                    {
+                        "title": "پرداخت از کیف پول",
+                        "amount": 74000
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
 ## ثبت سفارش
 
 URL:
@@ -145,6 +205,45 @@ Response:
 }
 ```
 
+نمونه‌ی curl:
+
+```bash
+curl --location 'https://api.tapsi.cab/api/v1/delivery/external/embedded/order/submit' \
+--header 'Authorization: Bearer theAccessTokenGeneratedUsingCliendIdAndPat'
+--header 'Content-Type: application/json' \
+--data '{
+    "token": "aTokenInThePreviewResponseThatShouldBeUsedOnOrderSubmission",
+    "timeslotId": "1707921000000_1707931800000",
+    "package": null,
+    "sender": {
+        "location": {
+            "coordinate": {
+                "latitude": 35.69013977050781,
+                "longitude": 51.34545135498047,
+                "bearing": null
+            },
+            "description": "تهران، ب یادگار امام، بعد از خ. سعادت آباد، بل بهزاد، ک. باغستان",
+            "buildingNumber": "33",
+            "apartmentNumber": ""
+        }
+    },
+    "receiver": {
+        "fullName": "خانم یا آقای گیرنده",
+        "phoneNumber": "09123456789",
+        "location": {
+            "coordinate": {
+                "latitude": 35.6959114074707,
+                "longitude": 51.49193130493164,
+                "bearing": null
+            },
+            "description": "تهران، ب یادگار امام، بعد از خ. سعادت آباد، بل بهزاد، ک. باغستان",
+            "buildingNumber": "2",
+            "apartmentNumber": ""
+        }
+    }
+}'
+```
+
 ## گرفتن اطلاعات سفارش
 
 به کمک شناسه‌ی هر سفارش،
@@ -165,7 +264,7 @@ GET
 |----------|--------|-------------|
 | order_id | String |             |
 
-Example Response:
+نمونه‌ی Response:
 
 ```json5
 {
@@ -280,6 +379,13 @@ Example Response:
 }
 ```
 
+نمونه‌ی curl:
+
+```json
+curl --location 'https://api.tapsi.cab/api/v1/delivery/external/embedded/order/654a26f63b7f106a1ce40efa' \
+--header 'Authorization: Bearer theAccessTokenGeneratedUsingCliendIdAndPat'
+```
+
 ## تغییر وضعیت سفارش (لغو سفارش)
 
 این متد به
@@ -314,4 +420,17 @@ Response:
 
 ```json5
 {}
+```
+
+نمونه‌یcurl:
+
+```bash
+curl --location --request PUT 'https://api.tapsi.cab/api/v1/delivery/external/embedded/order/change-status/cancelledBySender' \
+--header 'Authorization: Bearer theAccessTokenGeneratedUsingCliendIdAndPat' \
+--header 'Content-Type: application/json' \
+--data '{
+    "request_items": {
+        "order_id": "65cb7edfccfd4c3282875835"
+    }
+}'
 ```
