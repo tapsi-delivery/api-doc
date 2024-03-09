@@ -130,6 +130,25 @@ curl --location 'https://api.tapsi.cab/api/v1/delivery/external/embedded/order/p
 
 ## ثبت سفارش
 
+به دو شکل می‌توان از این
+API
+استفاده کرد.
+در حالت اول، ثبت کننده‌ی سفارش همان فرستنده‌ی بسته است. در این حالت، در
+Sender
+کافی‌ست تنها
+Location
+را بنویسید و تپسی‌پک نام و شماره تماس ثبت کننده‌ی سفارش را به عنوان نام و شماره تماس فرستنده‌ی بسته ثبت می‌کند.
+
+اما حالتی را در نظر بگیرید که فرستنده‌ی بسته، کسی غیر از ثبت‌کننده‌ی سفارش باشد.
+در این شرایط، باید در
+Sender
+علاوه بر
+Location،
+مقدار
+Profile
+را نیز بفرستید که شامل شماره تماس و نام فرستنده‌ی بسته است.
+
+
 URL:
 
 ```
@@ -170,7 +189,9 @@ Request:
 * Phone
   ```json5
   {
+    "isPrimary": "bool",  // Can only be true for one of the phones.
     "number": "string",
+    "title": "string",
     "type": "Case Sensitive String"
     // HOME, MOBILE, OTHER
   }
@@ -186,7 +207,12 @@ Request:
 * Sender
   ```json5
   {
-    "location": "{Location}"
+    "location": "{Location}",
+    "profile": {
+      "name": "string",
+      "phones": ["{Phone}"]
+    }
+    // optional
   }
   ```
 * Pack
