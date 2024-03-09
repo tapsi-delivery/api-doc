@@ -269,13 +269,6 @@ curl --location 'https://api.tapsi.cab/api/v1/delivery/external/oauth2/token' \
 --data-urlencode 'refresh_token=User Refresh Token'
 ```
 
-در حال حاضر هر 
-refresh token
-تا ۴۸ ساعت معتیر است و پس از آن منقضی خواهد شد.
-در این صورت باید دوباره از کاربر
-PAT
-بگیرید و از مرحله‌ی ۲ به بعد را دوباره انجام دهید.
-
 ---
 
 [![en](https://img.shields.io/badge/lang-en-red.svg)](./README.md)
