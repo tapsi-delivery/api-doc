@@ -69,6 +69,8 @@ Response:
 
 ## Order Submission API
 
+There are two approaches for using this API. In the first scenario, the user who wants to submit the order is also its sender. In this case, the `sender` field in the request body only contains `location`. The second scenario is when the one who wants to submit the order is not its sender; in this scenario, the sender field also contains `profile`, which includes the `name` and `phone` of the sender.
+
 URL:
 
 ```
@@ -109,7 +111,9 @@ Request:
 * Phone
   ```json5
   {
+    "isPrimary": "bool",  // Can only be true for one of the phones.
     "number": "string",
+    "title": "string",
     "type": "Case Sensitive String"
     // HOME, MOBILE, OTHER
   }
@@ -125,7 +129,12 @@ Request:
 * Sender
   ```json5
   {
-    "location": "{Location}"
+    "location": "{Location}",
+    "profile": {
+      "name": "string",
+      "phones": ["{Phone}"]
+    }
+    // optional
   }
   ```
 * Pack
